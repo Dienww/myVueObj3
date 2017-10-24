@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    v-for 循环渲染
+    v-for 既可遍历数组又可比遍历对象
+    1.都可以获取下标
+    2.对象遍历的获取内容顺序为 value key index
+    数组遍历的获取内容顺序为 value index
+    3.循环过程中，一般会给元素赋值一个key，key代表唯一标识
+    当数组顺序发生变化时，通过key值可以找到对应元素
+    例：购物车，某管理系统，数据排序
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--会创建出4个p标签-->
+    <p v-for="phonePre in phonePre">{{phonePre.pre}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{phonePre.name}}</p>
+    <br>
+    <p v-for="(value,index) in phonePre">value:{{value}} index:{{index}}</p>
+    <br>
+    <h1 v-for="(value,key,index) in student">{{key}}:{{value}},index:{{index}}</h1>
+</div>
+<script>
+
+
+    new Vue({
+        el:'#app',
+        data:{
+            student:{
+                name:'班长',
+                age:50,
+                sex:'不详',
+                hobby:'男'
+            },
+            phonePre:[
+                {pre:'+86',name:'中国'},
+                {pre:'+61',name:'澳大利亚'},
+                {pre:'+852',name:'中国香港'},
+                {pre:'+33',name:'法国'}
+            ]
+        }
+    })
+</script>
+</body>
+</html>
+</body>
+</html>

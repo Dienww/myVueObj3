@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--
+        所有原生的html都可以绑定事件
+        methods 所有函数中的this都代表实例本身
+        v-on
+        1.v-on:事件名
+        2.修饰符 针对于一些系统常用的event的操作，
+        阻止冒泡.stop,取消默认事件.prevent
+        3.缩写 @
+    -->
+
+    <!--获取dom节点的方法-->
+    <!--！！！！！important！！！！-->
+    <!--1.evevt.target-->
+    <!--2.ref-->
+
+    <!--绑定多个事件的写法：-->
+    <button v-on="{mouseenter:mouseEnter,click:mouseClick}">🀄🀄︎🀄︎🀄︎🀄︎🀄︎🀄︎🀄︎</button>
+    <!--键盘事件-->
+    <input @keyup.13="onEnter('六六六',$event)" ref="userInput">
+    <!--点击事件-->
+    <button v-on:click.prevent="clicked">点我</button>
+    <!--缩写-->
+    <button @click="clicked">再点我</button>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        methods:{
+            clicked:function () {
+            },
+            mouseEnter:function () {
+                console.log('老三最可爱')
+            },
+            mouseClick:function () {
+                console.log('爆҉灯҉')
+            },
+            onEnter:function (value,event) {
+                console.log(event);
+//                ！！！！！important
+//                获取input标签
+//                1.evevt.target
+//                2.ref
+                event.target.blur();
+                this.$refs.userInput.blur();
+                console.log(value)
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- {{}}文本插值 -->
+    <p>{{message}}</p>
+    <!-- v-text 赋值给 textContent -->
+    <p v-text="message"></p>
+    <!-- v-html 展示 html代码 -->
+    <div v-html="html"></div>
+    <!-- v-bind 单项数据绑定 属性绑定-->
+    <!-- 缩写 :  -->
+    <div :id="box"></div>
+    <!-- v-model 双项数据绑定 -->
+    <input type="text" v-model="username">
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:'啊啊啊啊不想敲代码了我怎么这么困这么饿啊啊啊啊啊啊啊'
+        }
+    })
+</script>
+</body>
+</html>
